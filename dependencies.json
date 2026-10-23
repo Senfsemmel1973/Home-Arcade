@@ -1,0 +1,73 @@
+{
+  "note": "Byte references only; obtain separately after reviewing third-party rights. No automatic download.",
+  "files": {
+    "runtime/LICENSE": {
+      "bytes": 157609,
+      "sha256": "5888dbb9a1d2b18f2c3e6c5f6af1b39de658372b402a0577b002777f14c62ace"
+    },
+    "runtime/bin/node": {
+      "bytes": 126816376,
+      "sha256": "67ca5783febb8bf85736c79fcdd92c8d6d465a0eb2a082672bcdfa76a506751c"
+    },
+    "web/atari/vendor/javatari.js": {
+      "bytes": 668855,
+      "sha256": "e4ea03d72013973fcbeb6b234705231d9328bf7a1f4dbfc9a61d9af5f31399d7"
+    },
+    "web/c64/data/compression/extract7z.js": {
+      "bytes": 280155,
+      "sha256": "4ac9933b995a516cb6b3ca4027db860278372a20c21c405d93ceb1998498853a"
+    },
+    "web/c64/data/compression/extractzip.js": {
+      "bytes": 196199,
+      "sha256": "3cc825428724213acd43d30552a78008e0869b2326de17dee240dbff9ee2f629"
+    },
+    "web/c64/data/cores/reports/vice_x64sc.json": {
+      "bytes": 147,
+      "sha256": "5c50bc4ff5546a2c6fc4bb7949efd200ea0ac6b4723713e742fb659228e9a3aa"
+    },
+    "web/c64/data/cores/vice_x64sc-legacy-wasm.data": {
+      "bytes": 1523390,
+      "sha256": "8a22bc81c0dd7104cd23ceec5117a9f47ca9503e280e4fbc9d0346f51b75253e"
+    },
+    "web/c64/data/cores/vice_x64sc-wasm.data": {
+      "bytes": 1523457,
+      "sha256": "77f58884c81b58721cbc4754ffc5574838219258e9390630c352a494a3f335ab"
+    },
+    "web/c64/data/emulator.css": {
+      "bytes": 33532,
+      "sha256": "0ba5b1ce183b6ecb95c17e54e89fbae77697ebb94ec23caca5fd19f9b569defe"
+    },
+    "web/c64/data/src/GameManager.js": {
+      "bytes": 19048,
+      "sha256": "f026130eda3648557498c54c70cbb5b36fd71b088e7e42e5a13e413aab11d888"
+    },
+    "web/c64/data/src/compression.js": {
+      "bytes": 6409,
+      "sha256": "bd6723ec29fee8de81118cfbddfcb53301b8f41f7c6fb22c2de44dedbf111c2c"
+    },
+    "web/c64/data/src/emulator.js": {
+      "bytes": 341775,
+      "sha256": "24ebac4baf739892046b82c3bdf01d5b6795b801b77d289e43a4c7d59f9666be"
+    },
+    "web/c64/data/src/gamepad.js": {
+      "bytes": 6054,
+      "sha256": "27707ee9256cf3e1a6f32d1c3c42f2aed991d637773699fff566008229cc09c8"
+    },
+    "web/c64/data/src/nipplejs.js": {
+      "bytes": 20259,
+      "sha256": "cf745190f5dc5db942ad54f5683d56c6d6da445646f4b4fc23c049c9985a04df"
+    },
+    "web/c64/data/src/shaders.js": {
+      "bytes": 139565,
+      "sha256": "79bcd4c35740b2858fc28f2f1894ddb8f483f1aba6f564869a713515726fe902"
+    },
+    "web/c64/data/src/storage.js": {
+      "bytes": 4600,
+      "sha256": "06759f310bb2d782d2728e1d3417a0d8f613eff935d2959c1a705670041a6f2e"
+    },
+    "web/c64/data/version.json": {
+      "bytes": 126,
+      "sha256": "d8991427000a96fb97daefdb62178071e9bbff911760706148e584ae8d69f9e7"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+Own Home Arcade C64 adapter: MIT.
+Copyright (c) 2026 Harry Knechtel. See the source checkout's root LICENSE.
+No EmulatorJS, VICE, firmware or vendor sources in this source export.
+External versions: EmulatorJS 4.2.3 (GPL-3.0); VICE 3.9 core 5e885db
+(GPL-2.0-or-later software; embedded system firmware has separate rights).
+https://github.com/EmulatorJS/EmulatorJS
+https://github.com/EmulatorJS/vice-libretro/tree/5e885db667124eb4b8ed77b476375f8bc3c96c25
+Preserve external copyright notices and provide corresponding source/build
+materials as required when distributing your integrated instance.

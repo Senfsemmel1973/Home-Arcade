@@ -1,0 +1,262 @@
+{
+  "version": "2.0.0",
+  "kind": "own-source-export",
+  "files": {
+    ".gitattributes": {
+      "bytes": 79,
+      "sha256": "144c0f2faeea0cec13a3281d62fbb6a095c4ffc4e36d11a026c8ef096cabc4dc"
+    },
+    ".gitignore": {
+      "bytes": 253,
+      "sha256": "225f371d24b46cb13766b7eb1be6fbbdbbb5a334610472c8ad319d112eb6f861"
+    },
+    "LICENSE": {
+      "bytes": 1071,
+      "sha256": "1d9952956b3828bde803939935225012c50e5cceba723c0984d1e4e9133694ca"
+    },
+    "README.md": {
+      "bytes": 4321,
+      "sha256": "810394bf7bddf2faf0a3d54d779ab06886b4489d1f9fcf75523d3428d3f7bcb0"
+    },
+    "SETUP-INTEGRATION.md": {
+      "bytes": 16077,
+      "sha256": "754139e06150fc73cc6f80f9a57659d932bece2e0d9ef4be6e8e59f592fbbe03"
+    },
+    "app/atari-profiles.json": {
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "app/factory.py": {
+      "bytes": 2361,
+      "sha256": "ebd91224aaf1fc7cf48185c888f24f41dea749e01685ce6a36fd0f25b3899347"
+    },
+    "app/formats.py": {
+      "bytes": 8787,
+      "sha256": "7ebe7b9ed40c74c8c9d4db2ffbe178484a88e7aeff799a92f7dd25765537e944"
+    },
+    "app/service.py": {
+      "bytes": 26613,
+      "sha256": "efd9256f765affc306fe774fb62563b53b2935654dc12718f0a92fdedca4d381"
+    },
+    "app/storage.py": {
+      "bytes": 4523,
+      "sha256": "2b692393dd7f3a120056047773fa038a579cf5dc1aabf2d4d02b95bfceb0a33d"
+    },
+    "app/validate.cjs": {
+      "bytes": 692,
+      "sha256": "fd78b2aee17ec5d8931ec2453ca1e8efc003c1e4d3e12b55f707dab712bbccab"
+    },
+    "app/webapp.py": {
+      "bytes": 9086,
+      "sha256": "e1381db803ef19d2f88c56e6c0aae747d08c16d8ea42c65fea5a102734317a12"
+    },
+    "dependencies.json": {
+      "bytes": 2723,
+      "sha256": "a9bbc621b6dfdb4320776747d9d920808ff0c84de4b0e3068cb2aa253032d74e"
+    },
+    "docs/CONTROLS.md": {
+      "bytes": 2796,
+      "sha256": "59fffc09217ba6ccc54a9a375ecf89b9434debae7f1207ea3b8744ecec26409f"
+    },
+    "docs/EXPORT-NOTES.md": {
+      "bytes": 1612,
+      "sha256": "ca50427fbb37083b4ea83ada815fed19e2fc41836d99d22ed79e305d730e879f"
+    },
+    "docs/LICENSING.md": {
+      "bytes": 3968,
+      "sha256": "4c340d853e37b5a85bd0f9f235115976c4646940caeed9ea5e2a0f2fc8fb0afc"
+    },
+    "empty-catalog.json": {
+      "bytes": 25,
+      "sha256": "e7c925da6866636348887cf29ac4194d6cc1305a47ca63417c1f4af04017ea8b"
+    },
+    "installer/_clean.py": {
+      "bytes": 23726,
+      "sha256": "d5e6a9f401790553d1b79d3763883e40ec4b40c25dafa9b883014c840f71bb11"
+    },
+    "installer/install.py": {
+      "bytes": 3952,
+      "sha256": "c68cec4acab785f9b8ee5b0e69f1f5d8b645b72f35203b67b166cd2b066d9dfa"
+    },
+    "installer/inventory.py": {
+      "bytes": 6334,
+      "sha256": "b43ee57057241dab2fd2af5b9c3c7de710fb09786d95778923f189266833bf46"
+    },
+    "installer/legacy-reference.json": {
+      "bytes": 6274,
+      "sha256": "52fcb45bd4a7eadb5f3aac8db5133c05ab0e307d3940afe4d3653b02887d49cd"
+    },
+    "installer/legacy.py": {
+      "bytes": 947,
+      "sha256": "dfb8376e9f602a0da4f84cf9ec3fb3d89d549a41ffa58a58a3f0867f6b5dc76a"
+    },
+    "installer/upgrade.py": {
+      "bytes": 25406,
+      "sha256": "8caaa0538e8789c8b9666d638af723bebbdd68a0a8bbbfe738e706387718078b"
+    },
+    "installer/verify_install.py": {
+      "bytes": 5619,
+      "sha256": "614ceb72f45815a778e64b684c0a191e7aba0f297bc36b68465dff0987fa34a9"
+    },
+    "licenses/GPL-3.0.txt": {
+      "bytes": 35785,
+      "sha256": "c5a34879e9402954ba1ad39335b3d97b4071a11be76eed7329c79f713786c97f"
+    },
+    "schema/manifest.js": {
+      "bytes": 8606,
+      "sha256": "c653c73fe26a42ac5b98a95440432911264ff27a7c942421efc6d6d56bec5644"
+    },
+    "tests/baseline.json": {
+      "bytes": 2227,
+      "sha256": "de5c7d1207de44eb4844a106dfa2f90bcece2b2ad7abdcbac4d7ef0e781cb556"
+    },
+    "tests/profiles.cjs": {
+      "bytes": 2220,
+      "sha256": "408d2ccfc567a8f37e99b3f3af52525e7b6869520c95e71592fc7e93627ffa8c"
+    },
+    "tests/store.cjs": {
+      "bytes": 1883,
+      "sha256": "a6503af235a5dcbc3dc954a7295c09b284d49967174dd41afba77d05c3ab2b2e"
+    },
+    "tests/test_formats.py": {
+      "bytes": 3213,
+      "sha256": "2aa458d7d538173e17522b01675a37e21616d6d351eb71de727ce69db3751ed7"
+    },
+    "tests/test_import.py": {
+      "bytes": 28227,
+      "sha256": "17da083be8442ea35c4e959463330d6e747153a361cd987e46fafeef37f1d526"
+    },
+    "tools/build_instance.py": {
+      "bytes": 3684,
+      "sha256": "e762698e4ddfdc34e8c28d9f472efdbd6cc9f603e9fb7c480b28a1b3231e7616"
+    },
+    "tools/build_profiles.py": {
+      "bytes": 2453,
+      "sha256": "a8779ee370b10c18d7a532de401a01f46316d24413fdb44d186bbc18962b9c35"
+    },
+    "tools/check_source.py": {
+      "bytes": 1395,
+      "sha256": "69ad5d9a33ad507fb68debf6fcbd6806ee2c6454c67c9621cabbf26287e3fbad"
+    },
+    "tools/collect_dependencies.py": {
+      "bytes": 1774,
+      "sha256": "808aa1e842be4d9b26048de6776e3710bfca5e52f1d2ea0d8649883e8655b7cf"
+    },
+    "web/atari/player.css": {
+      "bytes": 2341,
+      "sha256": "8b4f302972b75bd3e79a39df27a6c3efffc43bc0ee3bc6b71c544d38ec01af90"
+    },
+    "web/atari/player.html": {
+      "bytes": 3357,
+      "sha256": "746f2bfcd2cc0128991681ae131fcc04e857c88f469f31b60b2347e5239310b7"
+    },
+    "web/atari/player.js": {
+      "bytes": 8086,
+      "sha256": "74ffdc9bfb6626d0bce57eadaf88c7d236d5de4d2af3fb356f082142d0aa0399"
+    },
+    "web/c64/licenses/EmulatorJS-GPL-3.0.txt": {
+      "bytes": 35785,
+      "sha256": "c5a34879e9402954ba1ad39335b3d97b4071a11be76eed7329c79f713786c97f"
+    },
+    "web/c64/licenses/NOTICE.txt": {
+      "bytes": 596,
+      "sha256": "82ce3a17b76c61fc66b5f398f39db048e4a7cffe3453dc32d1b4a9fd1145fd64"
+    },
+    "web/c64/licenses/VICE-GPL-2.0.txt": {
+      "bytes": 17989,
+      "sha256": "b8a2f73f743dc1a51aff23f1aacbca4b868564db52496fa3c0caba755bfd1eaf"
+    },
+    "web/c64/network.js": {
+      "bytes": 1075,
+      "sha256": "4247e0abca6524f65d8dbf1224d1fafee70fb0f256e7ff5f2346dd1b7ab929ae"
+    },
+    "web/c64/player.css": {
+      "bytes": 1618,
+      "sha256": "6947fbfb70b603c7939d61de66f7cb450da64d103f31807f56faa45fedb6567b"
+    },
+    "web/c64/player.html": {
+      "bytes": 4906,
+      "sha256": "faf80c2b5eec052e7bcc1b3149cb470e09db1ea8f3039521f04759b625ea2330"
+    },
+    "web/c64/player.js": {
+      "bytes": 10526,
+      "sha256": "db021e20e1ae58e266785b621a41c2a20b7b10118912ea564e960fdd2f056549"
+    },
+    "web/game-profiles.js": {
+      "bytes": 1451,
+      "sha256": "46819303e4ae609a4306457b2d60d926081946051549b89f2df3ed051a31977a"
+    },
+    "web/import/import.css": {
+      "bytes": 6733,
+      "sha256": "1828fff30bff7174e4eda8a88acdfea85caf5205bf7eee53d406661d0c30e9cb"
+    },
+    "web/import/import.js": {
+      "bytes": 15151,
+      "sha256": "0577a2c65ee5934b8acc80c39c46f2530e63f6a2acf309c54fbd4f0c1b6f507a"
+    },
+    "web/import/index.html": {
+      "bytes": 2107,
+      "sha256": "5f734781a6400d38c72d31a13f79fbfada501d7086bfff938fe2b5d04daabd8b"
+    },
+    "web/index.html": {
+      "bytes": 2819,
+      "sha256": "ef20f19f26a3d751a74a5731e8ed4e444045eab4eb05b05ef356bd1c4d2c053a"
+    },
+    "web/input-router.js": {
+      "bytes": 3210,
+      "sha256": "fe04c21f99256fff1246eb049804eef45fc842bf68c40397c13f303dcbbcb503"
+    },
+    "web/library-controller.js": {
+      "bytes": 14366,
+      "sha256": "8dec919de4469a7fb9b786d9c48d35191003b234d052f1c4282d1a57a1b92808"
+    },
+    "web/library.css": {
+      "bytes": 9106,
+      "sha256": "acf40c9f045e287eda49faa945b6174ceb0cc83dcf7750164553aa14679f6103"
+    },
+    "web/licenses/JSZip-LICENSE.txt": {
+      "bytes": 33738,
+      "sha256": "0590516417b9c758024658917b710243126d5aaa10e046bc4bbd376bebd0b629"
+    },
+    "web/licenses/LICENSE-AGPL-3.0.txt": {
+      "bytes": 35182,
+      "sha256": "409baef9654bacd15ddd8da5bf2355703fc91805fbc9ac792608493cf761763a"
+    },
+    "web/licenses/NOTICE.txt": {
+      "bytes": 476,
+      "sha256": "9e279337a399d2f18f0afec172791e9f9fea888f844cc72cad4d5208733913db"
+    },
+    "web/licenses/pako-LICENSE.txt": {
+      "bytes": 1084,
+      "sha256": "aee044642914fdc9ce2d1488261b6853c06f27675bddef847817bb89d012498e"
+    },
+    "web/manifest.js": {
+      "bytes": 8606,
+      "sha256": "c653c73fe26a42ac5b98a95440432911264ff27a7c942421efc6d6d56bec5644"
+    },
+    "web/player-host.css": {
+      "bytes": 1554,
+      "sha256": "262c987d8b182781341ad3ddbcc09be659024177fe04280749be53ee126ab722"
+    },
+    "web/player-host.js": {
+      "bytes": 18010,
+      "sha256": "878e17e1eae7b45f7042121eda54d92c929b0c4e6185a56e78320bd93cde95d2"
+    },
+    "web/presentation.js": {
+      "bytes": 970,
+      "sha256": "1786119cb60cd591fa77fa7cf901f216f770c25d1072fccc62e02027d3494ae0"
+    },
+    "web/router.js": {
+      "bytes": 6561,
+      "sha256": "44639396b9fe41aa0e37111f8871350c4506dfab0faaf99529832490446b7f14"
+    },
+    "web/state-adapters.js": {
+      "bytes": 5333,
+      "sha256": "477361be15c7118cd2df7048666818752009f0b600a9fcc756ef312e065c30aa"
+    },
+    "web/state-store.js": {
+      "bytes": 6280,
+      "sha256": "aa33c87095bcf2d3f6dc3af6b6724164643d14a476f566fb619f75979f1db4df"
+    }
+  }
+}

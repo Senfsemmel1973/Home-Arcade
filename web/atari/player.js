@@ -1,0 +1,40 @@
+/* Home Arcade adapter, Copyright (c) 2026 Harry Knechtel. SPDX-License-Identifier: MIT. Engine supplied separately. */
+'use strict';
+const NativeGamepads=jt.GamepadConsoleControls;
+jt.GamepadConsoleControls=function(...args){NativeGamepads.apply(this,args);this.controlsClockPulse=function(){};};
+Object.assign(Javatari,{AUTO_START:false,ALLOW_URL_PARAMETERS:false,CARTRIDGE_URL:'',STATE_URL:'',AUTODETECT_URL:'',NETPLAY_JOIN:'',SERVER_ADDRESS:'',SERVER_KEEPALIVE:0,CARTRIDGE_SHOW_RECENT:false,CARTRIDGE_CHANGE_DISABLED:true,AUTO_POWER_ON_DELAY:0,SCREEN_FULLSCREEN_MODE:0,SCREEN_FILTER_MODE:0,SCREEN_CRT_MODE:0,PADDLES_MODE:0,TOUCH_MODE:0});
+jt.NetClient.initKeepAlive=()=>{};jt.NetClient.sendKeepAlive=()=>{};
+// Apply a predictable standard controller profile without saving browser preferences.
+const originalLoad=Javatari.userPreferences.load;
+Javatari.userPreferences.load=function(){originalLoad.call(this);const p=this.current;p.joystickKeys=this.defaults().joystickKeys;p.turboFireSpeed=0;p.joystickGamepads.forEach(g=>Object.assign(g,{button:0,buttonT:-1,reset:-1,select:-1,pause:-1,fastSpeed:-1,slowSpeed:-1,xAxis:0,yAxis:1,xAxisSig:1,yAxisSig:1,deadzone:.3,device:-1}));};
+(async()=>{
+let game;try{game=await Arcade.resolve('vcs2600');Arcade.describe(game);}catch(e){document.getElementById('status').textContent=e.message;return;}
+const $=id=>document.getElementById(id),params=new URLSearchParams(location.search);let bytes,ready=false,muted=false,paused=false;
+const buttons=['reset','select','pause','sound','full'];
+const valid=params.get('system')==='vcs2600'&&params.get('game')===game.id&&params.getAll('system').length===1&&params.getAll('game').length===1;
+if(!valid){$('status').textContent='Ungültiges Spiel. Bitte über die Spielebibliothek öffnen.';$('start').textContent='Nicht verfügbar';return;}
+const state=(message)=>{$('status').textContent=message;};
+function control(code,press){Javatari.room.consoleControls.processControlState(code,press);}
+function pulse(code){if(!ready)return;control(code,true);setTimeout(()=>control(code,false),150);Javatari.room.screen.focus();}
+function noOnline(){Javatari.room.showOSD('Online-/Dateiladefunktionen sind im LAN-Prototyp deaktiviert.',true,false);}
+function restrictRoom(){const room=Javatari.room,pc=jt.PeripheralControls,blocked=new Set([pc.SCREEN_OPEN_NETPLAY,pc.AUTO_LOAD_URL,pc.CARTRIDGE_LOAD_URL,pc.AUTO_LOAD_FILE,pc.CARTRIDGE_LOAD_FILE,pc.CARTRIDGE_LOAD_RECENT,pc.CONSOLE_LOAD_STATE_FILE,pc.CONSOLE_LOAD_STATE_MENU,pc.SCREEN_OPEN_HELP,pc.SCREEN_OPEN_ABOUT]);const original=room.peripheralControls.controlActivated;room.peripheralControls.controlActivated=function(code,...args){if(blocked.has(code))return noOnline();return original.call(this,code,...args);};room.screen.openNetPlayDialog=noOnline;room.fileLoader.readFromURL=noOnline;room.fileLoader.openURLChooserDialog=noOnline;room.getNetServer=()=>{noOnline();throw new Error('Netplay deaktiviert');};room.getNetClient=()=>{noOnline();throw new Error('Netplay deaktiviert');};}
+async function load(){try{const response=await fetch(new URL(game.rom,Arcade.base).href,{cache:'no-store',credentials:'omit',redirect:'error'});if(!response.ok)throw new Error('ROM HTTP '+response.status);bytes=new Uint8Array(await response.arrayBuffer());if(bytes.length!==game.bytes)throw new Error('Unerwartete ROM-Größe: '+bytes.length);if(await ArcadeStateStore.sha256(bytes)!==game.sha256)throw Error('ROM-Prüfsumme stimmt nicht.');state(game.title+' bereit · '+game.bytes+' Bytes · „Starten“ drücken.');$('start').disabled=false;$('start').textContent='Starten';}catch(e){state('ROM konnte nicht geladen werden: '+e.message+' · Seite nach Prüfung der lokalen Datei neu laden.');$('start').textContent='Laden fehlgeschlagen';}}
+$('start').onclick=async()=>{if(ready){host.reset();return;}try{$('start').disabled=true;state('Atari 2600 wird gestartet …');Javatari.CARTRIDGE_URL='';Javatari.start(false);restrictRoom();const until=Date.now()+12000;while(Javatari.room.isLoading){if(Date.now()>until)throw new Error('Zeitüberschreitung beim Engine-Start');await new Promise(r=>setTimeout(r,50));}Javatari.room.fileLoader.loadFromContent(game.title+'.bin',bytes.slice(),jt.FileLoader.OPEN_TYPE.ROM,0,false,false,game.mapper);const cart=Javatari.room.console.getCartridgeSocket().inserted();if(!cart||cart.format.name!==game.mapper||!Javatari.room.console.powerIsOn)throw new Error('Cartridge konnte nicht als '+game.mapper+' geladen werden');ready=true;host.started();buttons.forEach(id=>$(id).disabled=false);$('start').disabled=false;$('start').textContent='Neu starten';state(game.title+' läuft · bei stummem Ton einmal in die Spielfläche klicken.');Javatari.room.screen.focus();}catch(e){host.failed();state('Start fehlgeschlagen: '+e.message+' · Seite neu laden und erneut versuchen.');$('start').textContent='Bitte Seite neu laden';}};
+$('reset').onclick=()=>pulse(jt.ConsoleControls.RESET);$('select').onclick=()=>pulse(jt.ConsoleControls.SELECT);
+$('pause').onclick=()=>{paused=!paused;Javatari.room.console.systemPause(paused);$('pause').textContent=paused?'Fortsetzen':'Pause';Javatari.room.screen.focus();};
+$('sound').onclick=()=>{muted=!muted;Javatari.room.speaker[muted?'mute':'unMute']();$('sound').textContent=muted?'Ton einschalten':'Ton ausschalten';$('sound').setAttribute('aria-pressed',String(muted));Javatari.room.screen.focus();};
+$('full').onclick=()=>Javatari.room.screen.displayToggleFullscreen();
+window.addEventListener('keydown',e=>{if(!ready||document.getElementById('arcade-dialog')?.open||e.repeat||e.ctrlKey||e.altKey||e.metaKey)return;if(e.code==='KeyR'||e.code==='KeyS'){e.preventDefault();e.stopImmediatePropagation();if(e.code==='KeyR')host.reset();else pulse(jt.ConsoleControls.SELECT);}},true);
+window.addEventListener('blur',()=>{if(ready){Javatari.room.consoleControls.releaseControllers();control(jt.ConsoleControls.RESET,false);control(jt.ConsoleControls.SELECT,false);}});
+setInterval(()=>{if(document.hidden)return;try{const pads=Array.from(navigator.getGamepads?.()||[]).filter(Boolean);$('pad').textContent=pads.length?'Controller: '+pads.map(p=>p.id).join(', '):'Kein Controller sichtbar · Seite fokussieren und Controller-Taste drücken. Tastatur bleibt verfügbar.';}catch(e){$('pad').textContent='Gamepad-Abfrage: '+e.name+' · Tastatur verwenden; Diagnose auf der Startseite prüfen.';}},1000);
+window.addEventListener('pagehide',()=>{if(ready){Javatari.room.consoleControls.releaseControllers();Javatari.room.speaker.mute();Javatari.room.console.systemPause(true);}if(Javatari.shutdown)Javatari.shutdown();});
+
+const held=new Map();
+function emit(code,down){if(!ready)return;if(Boolean(held.get(code))===Boolean(down))return;held.set(code,Boolean(down));control(code,Boolean(down));}
+function release(){if(ready){for(const code of held.keys())emit(code,false);Javatari.room.consoleControls.releaseControllers();}held.clear();}
+const cc=jt.ConsoleControls;
+const snapshots=ArcadeSnapshots.vcs({game,getRoom:()=>Javatari.room});
+const host=window.PLAYER_HOST=ArcadePlayerHost({snapshots,game,system:'vcs2600',screen:document.querySelector('.screen'),release,start(){if($('start').disabled)return false;$('start').click();return true;},isPaused(){return ready&&Javatari.room.console.isSystemPaused();},pause(value){if(ready)Javatari.room.console.systemPause(value);},sound(){if(ready)$('sound').click();},reset(){pulse(cc.RESET);},key(){},toggle(name){control(cc[name],true);control(cc[name],false);},switches(){const report={};Javatari.room.console.getConsoleControlsSocket().controlsStateReport(report);return 'Links: '+(report[cc.DIFFICULTY0]?'A':'B')+' · Rechts: '+(report[cc.DIFFICULTY1]?'A':'B')+' · '+(report[cc.BLACK_WHITE]?'Schwarzweiß':'Farbe');},input(state){const desired={JOY0_UP:state.up,JOY0_DOWN:state.down,JOY0_LEFT:state.left,JOY0_RIGHT:state.right,JOY0_BUTTON:state.fire,SELECT:state.lb,RESET:state.rb,DIFFICULTY0:state.lt,DIFFICULTY1:state.rt};for(const [name,down] of Object.entries(desired))emit(cc[name],down);}});
+
+load();
+})();

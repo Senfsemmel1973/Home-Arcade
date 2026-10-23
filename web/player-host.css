@@ -1,0 +1,7 @@
+#arcade-dialog{background:#152333;color:#eef3ff;border:2px solid #96b9ff;border-radius:8px;width:min(620px,calc(100vw - 28px));max-height:85dvh;padding:22px;overflow:auto;z-index:100001}#arcade-dialog::backdrop{background:#000a}#arcade-dialog button,#arcade-dialog label{display:block;width:100%;margin:10px 0;text-align:left;padding:12px}#arcade-dialog button:focus,#arcade-dialog select:focus{outline:3px solid #ffe3a1;outline-offset:2px}#arcade-dialog button:disabled{opacity:.5}#arcade-dialog h2{font-size:24px}#arcade-dialog p{color:#eef3ff}#host-status{position:relative;background:#152333;color:#fff;margin:0;padding:8px 12px;font-size:14px}.host-large{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;z-index:99999!important;overflow:auto!important;background:#000}.host-large #game{height:calc(100dvh - 65px)}.host-large #javatari-screen{height:calc(100dvh - 65px)}[hidden]{display:none!important}
+.snapshot-preview{display:block;max-width:100%;max-height:50vh;object-fit:contain;margin:1rem auto;background:#000}
+
+/* The game and visible status share the same fullscreen surface. */
+#screen:fullscreen,#screen.host-large{display:flex;flex-direction:column;box-sizing:border-box;overflow:hidden!important;width:100vw!important;height:100dvh!important;min-height:0}
+#screen:fullscreen #game,#screen.host-large #game{flex:1 1 0;min-height:0;height:auto!important;width:100%}
+#screen:fullscreen #host-status,#screen.host-large #host-status{flex:0 0 auto;max-height:25dvh;overflow:auto;font-size:14px}

@@ -1,0 +1,7 @@
+Own Home Arcade Atari integration sources: MIT.
+Copyright (c) 2026 Harry Knechtel. See the source checkout's root LICENSE.
+Javatari, JSZip and pako are NOT included in this source export.
+Separately integrated Javatari 5.0.4: Paulo Augusto Peccin, AGPL-3.0.
+https://github.com/ppeccin/javatari.js/tree/f954960ddfbd8b8645de447bc7dc7a1eda066877
+Keep all upstream copyright, JSZip and pako notices with an integrated instance.
+See ../../docs/LICENSING.md in the source checkout.
